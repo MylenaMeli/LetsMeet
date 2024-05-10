@@ -197,13 +197,118 @@ function CopyClassText() {
 
 
 continueButt.addEventListener('click', () => {
-    if (nameField.value == '') return;
-    username = nameField.value;
-    overlayContainer.style.visibility = 'hidden';
-    document.querySelector("#myname").innerHTML = `${username} (You)`;
-    socket.emit("join room", roomid, username);
+  if (nameField.value == '') return;
+  fetch('/api/tasks')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json(); // Parse the response as JSON
+  })
+  .then(data => {
+    // Process the data
+    console.log('Data from the server:', data);
+
+     username = nameField.value;
+    let matchFound = false;
+
+    // Comparer chaque objet retourné avec username
+    data.forEach(participant => {
+      if (participant.email === username) {
+        matchFound = true;
+        console.log('Match found for username:', username);
+
+
+        overlayContainer.style.visibility = 'hidden';
+        document.querySelector("#myname").innerHTML = `${username} (You)`;
+        socket.emit("join room", roomid, username);
+                // Faites quelque chose ici si une correspondance est trouvée
+      }
+    });
+
+    if (!matchFound) {
+      console.log('No match found for username:', username);
+      // Faites quelque chose ici si aucune correspondance n'est trouvée
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
+
 
 })
+
+/**
+ *
+ * fetch('/api/tasks')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json(); // Parse the response as JSON
+  })
+  .then(data => {
+    // Process the data
+    console.log('Data from the server:', data);
+
+    const username = nameField.value;
+    let matchFound = false;
+
+    // Comparer chaque objet retourné avec username
+    data.forEach(participant => {
+      if (participant.email === username) {
+        matchFound = true;
+        console.log('Match found for username:', username);
+        // Faites quelque chose ici si une correspondance est trouvée
+      }
+    });
+
+    if (!matchFound) {
+      console.log('No match found for username:', username);
+      // Faites quelque chose ici si aucune correspondance n'est trouvée
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
+ */
+
+
+/*fetch('/api/tasks')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    console.log('Data from the server:', response.email);
+    return response.json(); // Parse the response as JSON
+  })
+  .then(data => {
+    // Process the data (e.g., update the page content)
+    console.log('Data from the server:', data.email);
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });*/
+  fetch('/api/tasks')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json(); // Parse the response as JSON
+  })
+  .then(data => {
+    // Process the data
+    console.log('Data from the server:', data);
+
+    // Utilisez les données récupérées ici
+    // Par exemple, vous pouvez parcourir les participants et afficher leurs e-mails
+    data.forEach(participant => {
+      console.log('Email:', participant.email);
+    });
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
 
 nameField.addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
@@ -434,12 +539,12 @@ function screenShareToggle() {
             }
             myscreenshare.getVideoTracks()[0].enabled = true;
             const newStream = new MediaStream([
-                myscreenshare.getVideoTracks()[0], 
+                myscreenshare.getVideoTracks()[0],
             ]);
             myvideo.srcObject = newStream;
             myvideo.muted = true;
             mystream = newStream;
-            screenShareButt.innerHTML = (screenshareEnabled 
+            screenShareButt.innerHTML = (screenshareEnabled
                 ? `<i class="fas fa-desktop"></i><span class="tooltiptext">Stop Share Screen</span>`
                 : `<i class="fas fa-desktop"></i><span class="tooltiptext">Share Screen</span>`
             );
@@ -723,3 +828,6 @@ whiteboardButt.addEventListener('click', () => {
 cutCall.addEventListener('click', () => {
     location.href = '/';
 })
+
+//hide chat
+

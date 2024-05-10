@@ -1,142 +1,223 @@
-<h2>नमस्ते (Namaste)🙏🏻 , I'm Shruti Sinha! <img src="https://media.giphy.com/media/12oufCB0MyZ1Go/giphy.gif" width="50"></h2>
-<img align='right' src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="230">
-<p><em>This is my entry for  <a href="https://microsoft.acehacker.com/engage2021/index.html">Microsoft Engage'21. </a><img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30"> 
-</em></p>
+<app-admin-header></app-admin-header>
+<app-sidebar />
 
-<br>All the supporting technical documentation and the demo video are available in the documentation folder of this repo.<br><br>
+<div class="app-content content">
+  <div class="content-wrapper">
+    <div class="content-wrapper-before"></div>
+    <div class="row">jnnvv</div>
+    <br />
+    <div class="content-header row">
+      <div class="content-header-left col-md-4 col-12 mb-2">
+        <h3 class="content-header-title">classes</h3>
+      </div>
+      <div class="content-header-right col-md-8 col-12">
+        <div class="breadcrumbs-top float-md-right">
+          <div class="breadcrumb-wrapper mr-1">
+            <a href="ajout-classe" class="btn btn-primary">
+              + ajouter une classe</a
+            ><br />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-body">
+      <div class="row match-height">
+        <div class="col-xl-3 col-md-6 courses" *ngFor="let classe of response.classes">
+          <div class="card" style="">
+            <div class="card-header" id="heading-links">
+              <h4 class="card-title">{{ classe.label }}</h4>
+              <div class="heading-elements">
+                <div class="dropdown dropdown-actions">
+                  <a
+                    class="dropdown-toggle btn btn-secondary btn-sm"
+                    href="#"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <i class="ft-more-vertical"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a
+                    (click)="updateClasse(classe.id)"
+                       class="dropdown-item action-edit btn-min-width float-md-right"
+                      ><i class="ft-edit-2"></i> Modifier</a
+                    >
+                    <a
+                    (click)="deleteClasse(classe.id)"
+                      class="dropdown-item action-edit btn-min-width float-md-right text-danger"
+                      data-toggle="modal"
+                      data-target="#modal_delete-8"
+                    >
+                      <i class="ft-trash-2"></i> Supprimer
+                    </a>
+                    <a
+                      href="#"
+                      class="dropdown-item action-edit btn-min-width float-md-right text-success"
+                      data-toggle="modal"
+                      data-target="#modal_invitation"
+                      data-class_id="8"
+                    >
+                      <i class="ft-user-plus"></i>Inviter des étudiants
+                    </a>
+                    <a
+                      href="/fr/espace-prive/exporter-etudiants/8"
+                      class="dropdown-item action-edit btn-min-width float-md-right text-info"
+                    >
+                      <i class="ft-download-cloud"></i>Exporter la liste
+                      d'étudiants
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="card-text">
+                <span>Etablissement : </span> <b>{{ classe.school }}</b
+                ><br />
+                <span>Ville : </span> <b>{{ classe.city }}</b
+                ><br />
+                <span>Etudiants : </span> <b>0</b><br />
+              </div>
+            </div>
+            <div
+              class="card-footer border-top-blue-grey border-top-lighten-5 text-muted"
+            >
+              <span class="float-left"> 30/01/2024 11:12 </span>
+              <span class="float-right">
+                <a href="acceder-classe" class="card-link"
+                  >Accéder
+                  <i class="la la-angle-right"></i>
+                </a>
+              </span>
+            </div>
+          </div>
 
-In this age of social distancing, Let's Meet. 
-==============
-#### A Microsoft Teams Clone built for Microsoft Engage 2021. ####
-
-<br>
-
-The Challenge
-------------
-
-Build a Microsoft Teams clone.
-
-The solution should be a fully functional prototype with at least one mandatory functionality - a minimum of two participants should be able connect with each other using the product to have a video conversation.
-
-
-What I Accomplished
--------------------
-
-![Lets-Meet](public/landing-page/assets/img/logo.png)
-
-I successfully implemented the video calling feature. More than two people can currently video call together using the web app. I also implemented:
-
-1. Switch audio on/off
-2. Switch video on/off
-3. Create your own meeting url
-4. Join an existing meeting with more than two people
-5. Adding own name to profile with which you join the meeting
-6. Update whenever somebody joins or leaves the meeting
-7. Copy URL in-meeting
-8. Chatbox
-9. Screenshare
-10. Collaborative whiteboard
-11. Leave meeting 
-
-What I Learned
---------------------------------
-
-Microsoft and the Acehacker team kept various sessions for us to learn more about the work culture at Microsoft. We also learned about new technologies that have been developed by Microsoft (ie Azure Communication Services) and about the Agile Methodology. 
-
-The <strong>Agile Scrum Methodology</strong> has heavily influenced my work in the past 1 month. 
-Agile scrum methodology is a project management system that relies on incremental development. Each iteration consists of two- to four-week sprints, where each sprint's goal is to build the most important features first and come out with a potentially deliverable product. <br>
-Microsoft assigned us three sprints of 1-2 weeks each: <strong>Design, Build, and Adopt.</strong><br><br>
-In the <strong>first two weeks</strong>, I researched on WebRTC, Agora, Jitsi and socket.io to decide on which SDK I wanted to use for my web app. Ended up deciding on WebRTC. Got working on establishing video communication between two connections. <br><br>
-In the <strong>third and fourth week</strong>, I worked on adding additional features to my web app. <br><br>
-In the <strong>last week</strong>, I ended up adding the chat feature and worked on the landing page as well as the UI for the whole web app.<br><br>
-
-
-
-Running the Web App on your Local Device
---------------------------------
-
-To run the web app in your local device, run the following commands in your terminal (macOS) or command prompt (Windows) :-
-
--Clone the GitHub repository into your local device by running the following command:
-```bash
-cd folder-you-want-to-download-code-in
-
-git clone https://github.com/shrutayyyy/LetsMeet.git
-
-cd LetsMeet
-```
--Now that you're in the project folder, open terminal to download the needed node modules:
-```bash
-npm install
-```
--Now run the server by running the following command:
-```bash
-npm start
-```
-The server should be running at <strong>localhost:3000</strong><br>
-If localhost:3000 shows busy on your device, run the following commands:
-```bash
-sudo lsof -i :3000
-
-kill -9 <PID>
-```
-Now localhost:3000 is free to run this application.
-<br>
-<br>
--To access the web app, in your project code folder, navigate to public/landing-page and from there open landing.html on any browser of your preference (Chrome recommended for best experience).<br><br>
-
-Technologies Used 
------------------
-
-
-1. Node.js
-2. HTML 
-3. CSS 
-4. Bootstrap
-5. JavaScript
-6. WebRTC
-7. Socket.io
-
-
-Future Possible Functionalities
--------------------------------
-
-1. Add a sign up/authentication page
-2. Improve upon the Adapt functionality in the web app
-3. Add an additional feature of breakout rooms      
-4. Increase Scalability 
+        </div>
 
 
-Screenshots
------------------
-<br>
+      </div>
+      <div id="pagination-container" class="light-theme simple-pagination">
+        <ul>
+          <li class="disabled"><span class="current prev">«</span></li>
+          <li class="active"><span class="current">1</span></li>
+          <li class="disabled"><span class="current next">»</span></li>
+        </ul>
+      </div>
 
-![Lets-Meet](public/landing-page/assets/img/portfolio/portfolio-1.jpg)
-<br>
-
-![Lets-Meet](public/landing-page/assets/img/portfolio/portfolio-5.jpg)
-<br>
-
-![Lets-Meet](public/landing-page/assets/img/portfolio/portfolio-8.jpg)
-<br>
-
-![Lets-Meet](public/landing-page/assets/img/portfolio/portfolio-9.jpg)
-<br><br>
-
-Check out the following links!
------------------
-<br>
-
-Technical Documentation: [lets-meet.pdf](documentation/lets-meet.pdf)
-<br><br>
-Web App Flow: [web-app-flow.png](documentation/web-app-flow.png)
-<br><br>
-Demo Video: [Let's Meet!](https://youtu.be/Y7xJqFvXm6A)
-
-
-
-
-
-
-
-
+      <!--Invitation Modal-->
+      <div class="modal fade text-left" id="modal_invitation">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="myModalLabel34">
+                <i class="ft-user-plus">Ajouter des étudiants</i>
+              </h3>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <form
+              method="post"
+              action="/fr/espace-prive/inviter-des-etudiants"
+              enctype="multipart/form-data"
+            >
+              <div class="modal-body">
+                <div>
+                  <label>
+                    <input type="checkbox" id="load_csv" /> Add students with
+                    .csv file</label
+                  >
+                </div>
+                <div
+                  class="form-group"
+                  id="load_bulk_students"
+                  style="display: none"
+                >
+                  <input type="file" name="csv_file" class="form-control" />
+                </div>
+                <div id="add_inputs" style="display: block">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Full Name"
+                          id="student_name"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <input
+                          type="email"
+                          class="form-control"
+                          placeholder="email"
+                          id="student_email"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div>
+                        <button
+                          type="button"
+                          class="btn btn-primary"
+                          id="add_student"
+                        >
+                          <i class="ft-plus-circle"></i> Ajouter
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                  name="invitation_class_id"
+                  id="invitation_class_id"
+                  value=""
+                />
+                <div
+                  class="table-responsive"
+                  style="display: none"
+                  id="table_students"
+                >
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th style="width: 60%; text-align: left">Etudiants</th>
+                        <th style="width: 30%; text-align: center"></th>
+                        <th style="width: 10%; text-align: right"></th>
+                      </tr>
+                    </thead>
+                    <tbody id="data_invitation"></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <input
+                  type="reset"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                  value="Annuler"
+                />
+                <input
+                  type="submit"
+                  class="btn btn-warning"
+                  value="Confirmer"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-admin-footer></app-admin-footer>

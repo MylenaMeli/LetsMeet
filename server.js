@@ -4,13 +4,104 @@ const http = require('http')
 const moment = require('moment');
 const socketio = require('socket.io');
 const PORT = process.env.PORT || 3000;
-
+const axios = require('axios');
 const app = express();
 const server = http.createServer(app);
 
 const io = socketio(server);
-
 app.use(express.static(path.join(__dirname, 'public')));
+const { Sequelize } = require('sequelize');
+const e = require('express');
+
+
+/**continueButt.addEventListener('click', () => {
+    if (nameField.value == '') return;
+    fetch('/api/tasks')
+  .then(response => response.json())
+  .then(data => {
+    // Les données sont disponibles dans la variable 'data'
+    // Vous pouvez les utiliser selon vos besoins
+    data.forEach(participant => {
+      console.log('ID:', participant.id);
+      console.log('Email:', participant.email);
+      if (nameField.value!= participant.email){
+        return;
+      }else{
+        nameField.value=participant.email;
+        username = nameField.value;
+        overlayContainer.style.visibility = 'hidden';
+        document.querySelector("#myname").innerHTML = `${username} (You)`;
+        socket.emit("join room", roomid, username);
+      }
+    });
+  })
+  .catch(error => {
+    console.error('Erreur lors de la récupération des participants:', error);
+  });
+
+
+}) */
+
+//test de connection à la base de données
+
+// Option 3: Passing parameters separately (other dialects)
+const sequelize = new Sequelize('my_class', 'root', '', {
+  host: 'localhost',
+  dialect:   'mysql'/* | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */
+});
+try {
+   sequelize.authenticate();
+  console.log('Connection has been established successfully.');
+} catch (error) {
+  console.error('Unable to connect to the database:', error);
+}
+
+//classe participant
+const Participant = sequelize.define('Participant', {
+  // Définition des colonnes...
+  email: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    unique: true
+  },
+}, {
+  tableName: 'participant' // Nom de la table dans la base de données
+},  {
+  timestamps: false // Désactive les champs "createdAt" et "updatedAt"
+});
+
+
+
+
+
+
+/**SELECT email FROM `participant` WHERE participant.classe_id=classe.id
+ * IN(SELECT classe_id FROM classe WHERE classe.id=course.classe_id
+ *  IN (SELECT id FROM course WHERE url="jjjd")); */
+
+//get all courses
+
+
+
+// A GET all participants
+app.get('/api/tasks', async (req, res) => {
+  try {
+    const participants = await Participant.findAll({
+      attributes: ['email', 'id'],
+    });
+
+    participants.forEach(participant => {
+      console.log('Email:', participant.email);
+    });
+
+    res.status(200).json(participants); // Send the data as JSON response
+  } catch (error) {
+    console.error('Error fetching participants:', error.message);
+    res.status(500).json({ error: 'Internal server error' }); // Handle the error gracefully
+  }
+});
+
+
 
 let rooms = {};
 let socketroom = {};

@@ -9,7 +9,9 @@
   font-family: "Open Sans", sans-serif;
   /*background: linear-gradient(to bottom, #000066 0%, #333399 100%);*/
 }
-
+.hidden {
+  display: none;
+}
 .mr-1 {
   margin-right: 10px;
 }
@@ -103,8 +105,8 @@ navbar .logo {
   border: none;
   border-radius: 10px;
   background-color: white;
-  border: 2px solid #4154f1;
-  color: #4154f1;
+  border: 2px solid #c2489f;
+  color: #c2489f;
 }
 .main .create-join .createroom-clicked:focus {
   outline: none;
@@ -113,7 +115,7 @@ navbar .logo {
   width: 100%;
   margin-top: 30px;
   font-size: 24px;
-  color: #393e46;
+  color: black;
   text-align: center;
   padding: 10px 0;
   border: none;
@@ -156,7 +158,7 @@ navbar .logo {
 .main .video-cont .video-self {
   height: 400px;
   width: 100%;
-  background-color: #393e46;
+  background-color: black;
   border-radius: 10px;
   object-fit: cover;
 }
@@ -167,7 +169,7 @@ navbar .logo {
   width: 100px;
 }
 .main .video-cont .settings .device {
-  background-color: #4154f1;
+  background-color: #c2489f;
   border-radius: 100px;
   padding: 10px;
   width: 40px;
@@ -176,7 +178,7 @@ navbar .logo {
   color: white;
 }
 .main .video-cont .settings .device:hover {
-  background-color: #393e46;
+  background-color: black;
   cursor: pointer;
 }
 .main .video-cont .settings .nodevice {
@@ -189,7 +191,7 @@ navbar .logo {
   color: white;
 }
 .main .video-cont .settings .nodevice:hover {
-  background-color: #393e46;
+  background-color: black;
   cursor: pointer;
 }
 
@@ -215,10 +217,10 @@ navbar .logo {
   right: 0;
   height: 100%;
   width: 100%;
-  background-color: #393e46;
+  background-color: black;
 }
 .overlay .box {
-  width: 100%;
+  width: 50%;
   margin: 0 auto;
   height: 200px;
   background-color: #ffffff;
@@ -229,7 +231,7 @@ navbar .logo {
 .overlay .box .head-name {
   padding-top: 20px;
   text-align: center;
-  color: #393e46;
+  color:black ;
   font-weight: bold;
 }
 .overlay .box .name-field {
@@ -239,8 +241,8 @@ navbar .logo {
   font-weight: bold;
   padding: 10px;
   width: 100%;
-  border-bottom: 3px solid #4154f1;
-  color: #393e46;
+  border-bottom: 3px solid #c2489f;
+  color: black;
   height: 40px;
 }
 .overlay .box .name-field:focus {
@@ -252,7 +254,7 @@ navbar .logo {
   margin-top: 30px;
   color: #ffffff;
   font-weight: bold;
-  background-color: #4154f1;
+  background-color: #c2489f;
   padding: 12px 20px;
   border-radius: 10px;
   transition: opacity 0.5s;
@@ -289,7 +291,7 @@ navbar .logo {
 }
 .container-room .left-cont {
   width: 80%;
-  background-color: #393e46;
+  background-color: black;
   height: 100vh;
   padding: 50px;
   text-align: center;
@@ -555,7 +557,7 @@ navbar .logo {
 }
 .container-room .left-cont .footer .utils .audio:hover {
   cursor: pointer;
-  background-color: #393e46;
+  background-color: black;
 }
 .container-room .left-cont .footer .utils .novideo {
   background-color: #4154f1;
@@ -570,13 +572,13 @@ navbar .logo {
 }
 .container-room .left-cont .footer .utils .novideo:hover {
   cursor: pointer;
-  background-color: #393e46;
+  background-color: black;
 }
 .container-room .left-cont .footer .utils .screenshare {
   background-color: #d8d8d8;
   text-align: center;
   margin-left: 10px;
-  color: #393e46;
+  color: black;
   padding: 10px;
   height: 40px;
   width: 40px;
@@ -587,12 +589,12 @@ navbar .logo {
 .container-room .left-cont .footer .utils .screenshare:hover {
   cursor: pointer;
   color: white;
-  background-color: #393e46;
+  background-color: black;
 }
 .container-room .left-cont .footer .utils .board-icon {
   background-color: #d8d8d8;
   text-align: center;
-  color: #393e46;
+  color: black;
   margin-left: 10px;
   padding: 10px;
   height: 40px;
@@ -604,7 +606,7 @@ navbar .logo {
 .container-room .left-cont .footer .utils .board-icon:hover {
   cursor: pointer;
   color: white;
-  background-color: #393e46;
+  background-color: black;
 }
 .container-room .left-cont .footer .utils .cutcall {
   background-color: #cc4e4e;
@@ -619,7 +621,7 @@ navbar .logo {
 }
 .container-room .left-cont .footer .utils .cutcall:hover {
   cursor: pointer;
-  background-color: #393e46;
+  background-color: black;
 }
 .container-room .left-cont .footer .copycode-cont {
   position: absolute;
@@ -635,6 +637,9 @@ navbar .logo {
   font-weight: bold;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+}
+button{
+  max-width: 50%;
 }
 .container-room .left-cont .footer .copycode-cont .copycode-button {
   padding: 10px 0;
@@ -676,11 +681,11 @@ navbar .logo {
 }
 .container-room .right-cont .head-title {
   font-weight: bold;
-  color: #393e46;
+  color: black;
   background-color: #ffffff;
   width: 100%;
   display: flex;
-  border-bottom: 2px solid #393e46;
+  border-bottom: 2px solid black;
 }
 .container-room .right-cont .head-title .chats,
 .container-room .right-cont .head-title .attendies {
@@ -716,7 +721,7 @@ navbar .logo {
 }
 .container-room .right-cont .chat-cont .message .info .username {
   font-weight: bold;
-  color: #4154f1;
+  color: #c2489f;
 }
 .container-room .right-cont .chat-cont .message .info .time {
   margin-left: 12px;
@@ -745,8 +750,8 @@ navbar .logo {
   font-size: 0.85rem;
   padding: 4px 10px;
   border: none;
-  border-bottom: 3px solid #4154f1;
-  color: #393e46;
+  border-bottom: 3px solid #c2489f;
+  color: black;
 }
 .container-room .right-cont .chat-input-cont .chat-input:focus {
   outline: none;
@@ -756,7 +761,7 @@ navbar .logo {
   padding: 5px 20px;
   border: none;
   background-color: white;
-  color: #4154f1;
+  color: #c2489f;
   font-weight: bold;
   font-size: 0.85rem;
   border-radius: 2px;

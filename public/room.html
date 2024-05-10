@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/roo.css">
     <script src="https://kit.fontawesome.com/6510466b6c.js" crossorigin="anonymous"></script>
     <script>
         const params = new URLSearchParams(location.search);
@@ -17,7 +18,7 @@
 <body>
     <div class="overlay" id="overlay">
         <div class="box">
-            <div class="head-name">Enter a Name</div>
+            <div class="head-name">Entrez votre adresse email</div>
             <input type="text" class="name-field" placeholder="Type here.." id="name-field"></input><br>
             <button class="continue-name">Continue</button>
 
@@ -30,7 +31,7 @@
                 <div class="video-box">
                     <video class="video-frame" id="vd1" autoplay playsinline>
                     </video>
-                    <div class="nametag" id="myname">yourname</div>
+                    <div class="nametag" id="myname">Votre Nom</div>
                     <div class="mute-icon" id="mymuteicon"><i class="fas fa-microphone-slash"></i></div>
                     <div class="video-off" id="myvideooff">Video Off</div>
                 </div>
@@ -89,7 +90,8 @@
         <div class="right-cont">
             <div class="head-title">
 
-                <div class="chats"><i class="fas fa-comment-alt mr-1"></i>Chats</div>
+                <div class="chats"><i  class="fas fa-comment-alt mr-1"></i>Chats</div>
+                <div class="chats"  id="toggleButton"><i class="fas fa-window-close"></i>Close</div>
 
 
             </div>
@@ -105,6 +107,7 @@
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/room.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
 </html>
